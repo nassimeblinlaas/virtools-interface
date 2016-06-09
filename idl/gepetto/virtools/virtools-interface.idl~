@@ -1,0 +1,37 @@
+// file graphicalinterface.idl
+module gepetto {
+  /// Corba exception travelling through the Corba channel
+  exception Error
+  {
+    string msg;
+  };
+
+  /// Sequence of names
+  typedef sequence <string> Names_t;
+
+module corbaserver {
+
+// Comments :
+// 1)  Node names are parsed, so if you call a node "node1/xxx", this node will
+//     be automatically added as a child of node1
+// 2)  Functions return False if an error occured (in that case, check the
+//     SceneViewer-corbaserver window for more information)
+// 3)  applyConfiguration doesn't move object straigh forward, you need to used
+//     the "refresh" function each time you want actualize position of the Viewer.
+//     This system is used to synchronize movement of all objects.
+
+typedef float Transform [7];
+typedef float Position [3];
+typedef float Color [4];
+typedef unsigned long WindowID;
+typedef sequence <string> Names_t; /// Sequence of names
+typedef sequence<float> floatSeq;
+typedef sequence<Position> PositionSeq;
+
+  /// Corba exception travelling through the Corba channel
+  interface FffInterface {
+	void fonc() raises (Error);
+    
+  };
+};
+};

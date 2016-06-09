@@ -1,0 +1,7 @@
+import omniORB
+omniORB.updateModule("fff.corbaserver")
+
+import fff_interface_idl
+
+from client import Client
+

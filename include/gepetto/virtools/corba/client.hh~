@@ -1,0 +1,35 @@
+
+#ifndef FFF_CLIENT_HH
+#define FFF_CLIENT_HH
+
+#include <iostream>
+#include <omniORB4/CORBA.h>
+#include <gepetto/fff/corba/fff-interface.hh>
+
+
+namespace fff {
+namespace corbaServer {
+  class Client
+  {
+    public:
+      typedef CORBA::ULong WindowID;
+
+      Client (int argc, char* argv[]);
+
+      ~Client ();
+
+      void connect (const char* iiop = "corbaloc:rir:/NameService");
+
+      gepetto::corbaserver::FffInterface_var& gui () {
+        return gui_;
+      }
+
+    private:
+      gepetto::corbaserver::FffInterface_var gui_;
+
+      CORBA::ORB_var orb_;
+  };
+}
+}
+
+#endif
