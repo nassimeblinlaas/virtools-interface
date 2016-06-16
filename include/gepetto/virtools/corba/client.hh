@@ -18,7 +18,7 @@ namespace corbaServer {
 
       ~Client ();
 
-      void connect (const char* iiop = "corbaloc:rir:/NameService");
+      void connect (const char* iiop = "corbaloc:iiop:192.168.0.12:2809/NameService");
 
       gepetto::corbaserver::VirtoolsInterface_var& gui () {
         return gui_;
